@@ -1,4 +1,4 @@
-P<!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
     <meta charset="UTF-8">
@@ -435,21 +435,8 @@ ${data.advertising}
                         email: data.contact_email
                     })
                 });
-
-                if (response.ok) {
-                    document.getElementById('successMessage').style.display = 'block';
-                    this.reset();
-                    
-                    setTimeout(() => {
-                        document.getElementById('successMessage').style.display = 'none';
-                    }, 5000);
-                } else {
-                    alert('حدث خطأ في الإرسال، يرجى المحاولة مرة أخرى');
-                }
-            } catch (error) {
-                alert('حدث خطأ في الإرسال، يرجى المحاولة مرة أخرى');
-                console.error('Error:', error);
-            }
+        
+            
         });
     </script>
 </body>
