@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakaria EXE Server - نموذج التقديم</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.05em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ Zakaria EXE Server ⚡</h1>
+            <p>نموذج التقديم للإدارة</p>
+        </div>
+
+        <div class="form-container">
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label>العمر *</label>
+                    <input type="number" name="age" required min="13" max="99">
+                </div>
+
+                <div class="form-group">
+                    <label>شو بتفيدنا لو وظفناك *</label>
+                    <textarea name="benefit" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>شو بدك تكون ادمن في ماين كرافت او في ديسكورد (اختار واحد) *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="platform" value="ماين كرافت" id="minecraft" required>
+                            <label for="minecraft">ماين كرافت</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="platform" value="ديسكورد" id="discord">
+                            <label for="discord">ديسكورد</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>شو بتساوي لو لقيت هكر *</label>
+                    <textarea name="hacker" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>شو بتساوي لو لقيت xray *</label>
+                    <textarea name="xray" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>شو بتساوي لو لقيت حد سب بالشات *</label>
+                    <textarea name="chat_insult" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>كم مدة اتصالك بالسيرفر (كم مدة تكون متصل) *</label>
+                    <input type="text" name="online_time" required>
+                </div>
+
+                <div class="form-group">
+                    <label>هل بترد على التكتات الموجودة لو كنت ادمن بالديس *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="tickets" value="نعم" id="tickets_yes" required>
+                            <label for="tickets_yes">نعم</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="tickets" value="لا" id="tickets_no">
+                            <label for="tickets_no">لا</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>شو بيفرقك عن الادمنز الثانيين *</label>
+                    <textarea name="difference" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>هل بترضى برتبة StaffMember *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="staff_member" value="نعم" id="staff_yes" required>
+                            <label for="staff_yes">نعم</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="staff_member" value="لا" id="staff_no">
+                            <label for="staff_no">لا</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>هل لما ابعثلك رسالة بترد سريع سريع؟ *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="quick_reply" value="نعم" id="reply_yes" required>
+                            <label for="reply_yes">نعم</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="quick_reply" value="لا" id="reply_no">
+                            <label for="reply_no">لا</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>هل حسابك مكركة او اصلية؟ *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="account_type" value="اصلية" id="original" required>
+                            <label for="original">اصلية</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="account_type" value="مكركة" id="cracked">
+                            <label for="cracked">مكركة</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>شو مواصفات جهازك *</label>
+                    <textarea name="pc_specs" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>من وين انت (Where are you from) *</label>
+                    <input type="text" name="country" required>
+                </div>
+
+                <div class="form-group">
+                    <label>شو الولاية / المدينة *</label>
+                    <input type="text" name="city" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ليش تبي تكون ادمن؟ *</label>
+                    <textarea name="why_admin" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How Old Are you *</label>
+                    <input type="number" name="age_english" required min="13" max="99">
+                </div>
+
+                <div class="form-group">
+                    <label>شو بتساوي لو حد عطى رابط مشبوه فيه بالشات *</label>
+                    <textarea name="suspicious_link" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>شو بتساوي لو حد شتم الادمن *</label>
+                    <textarea name="insult_admin" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>شو بتساوي لو لقيت احد ادمنز يستخدم الادمن لصالحه *</label>
+                    <textarea name="admin_abuse" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>هل بترول على اللاعبين *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="patrol" value="نعم" id="patrol_yes" required>
+                            <label for="patrol_yes">نعم</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="patrol" value="لا" id="patrol_no">
+                            <label for="patrol_no">لا</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>شو بتساوي لو حد نشر على سيرفره *</label>
+                    <textarea name="advertising" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">إرسال التقديم 📩</button>
+
+                <div class="success-message" id="successMessage">
+                    ✅ تم إرسال طلبك بنجاح! سيتم التواصل معك قريباً
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // تنسيق الرسالة
+            const emailBody = `
+تقديم جديد لـ Zakaria EXE Server
+
+━━━━━━━━━━━━━━━━━━━━
+📋 المعلومات الأساسية
+━━━━━━━━━━━━━━━━━━━━
+
+العمر: ${data.age}
+How Old Are you: ${data.age_english}
+من وين انت: ${data.country}
+الولاية/المدينة: ${data.city}
+ايميل التواصل: ${data.contact_email}
+
+━━━━━━━━━━━━━━━━━━━━
+💼 معلومات التقديم
+━━━━━━━━━━━━━━━━━━━━
+
+شو بتفيدنا لو وظفناك:
+${data.benefit}
+
+المنصة المختارة: ${data.platform}
+
+ليش تبي تكون ادمن:
+${data.why_admin}
+
+شو بيفرقك عن الادمنز الثانيين:
+${data.difference}
+
+━━━━━━━━━━━━━━━━━━━━
+⚙️ المعلومات التقنية
+━━━━━━━━━━━━━━━━━━━━
+
+نوع الحساب: ${data.account_type}
+مواصفات الجهاز:
+${data.pc_specs}
+
+مدة الاتصال بالسيرفر: ${data.online_time}
+
+━━━━━━━━━━━━━━━━━━━━
+🎯 حالات افتراضية
+━━━━━━━━━━━━━━━━━━━━
+
+شو بتساوي لو لقيت هكر:
+${data.hacker}
+
+شو بتساوي لو لقيت xray:
+${data.xray}
+
+شو بتساوي لو لقيت حد سب بالشات:
+${data.chat_insult}
+
+شو بتساوي لو حد عطى رابط مشبوه:
+${data.suspicious_link}
+
+شو بتساوي لو حد شتم الادمن:
+${data.insult_admin}
+
+شو بتساوي لو لقيت احد ادمنز يستخدم الادمن لصالحه:
+${data.admin_abuse}
+
+شو بتساوي لو حد نشر على سيرفره:
+${data.advertising}
+
+━━━━━━━━━━━━━━━━━━━━
+✅ أسئلة نعم/لا
+━━━━━━━━━━━━━━━━━━━━
+
+هل بترد على التكتات: ${data.tickets}
+هل بترضى برتبة StaffMember: ${data.staff_member}
+هل بترد سريع على الرسائل: ${data.quick_reply}
+هل بترول على اللاعبين: ${data.patrol}
+            `.trim();
+
+            // استخدام FormSubmit أو EmailJS
+            // هنا سأستخدم FormSubmit كمثال - يجب تغيير YOUR_EMAIL
+            
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/YOUR_EMAIL_HERE', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: 'تقديم جديد - Zakaria EXE Server',
+                        message: emailBody,
+                        email: data.contact_email
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    this.reset();
+                    
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    alert('حدث خطأ في الإرسال، يرجى المحاولة مرة أخرى');
+                }
+            } catch (error) {
+                alert('حدث خطأ في الإرسال، يرجى المحاولة مرة أخرى');
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
